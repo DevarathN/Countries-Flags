@@ -13,7 +13,7 @@ const LandingPage = () => {
         const data = await res.json();
         setCountryInfo(data);
       } catch (err) {
-        console.error("Error fetching data");
+        console.error("Error fetching data: "+err);
       }
     };
     retrieveCountryInfo();
