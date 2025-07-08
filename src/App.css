@@ -1,38 +1,54 @@
-.App {
+.landingpage {
+  display: inline-block;
+  align-items: center;
+}
+.country-card {
+  display: flex;
+  flex-direction: column; /* ⬆ flag, then ⬇ name */
+  align-items: center; /* center horizontally */
+
+  /* size + look */
+  width: 140px;
+  padding: 1rem;
+  gap: 0.5rem; /* space between flag & name */
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+  flex-wrap: wrap;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.country-card p {
+  font-weight: 600;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.countryflag {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 6vw;
+  height: 10vh;
 }
 
-.App-link {
-  color: #61dafb;
+@media screen and (max-width: 390px) {
+  .countryflag {
+    display: flex;
+    justify-content: center;
+    width: 20vw;
+    height: 6vh;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .countryflag {
+    display: flex;
+    justify-content: center;
+    width: 10vw;
+    height: 6vh;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row {
+  display: flex; /* put children in a row  */
+  flex-wrap: wrap; /* wrap to next line on small screens */
+  gap: 1rem; /* space between cards   */
+  justify-content: center;
 }

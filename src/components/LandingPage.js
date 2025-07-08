@@ -1,0 +1,42 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+
+const LandingPage = () => {
+  const [countryInfo, setCountryInfo] = useState(null);
+
+  useEffect(() => {
+    const retrieveCountryInfo = async () => {
+      const res = await fetch(
+        "https://xcountries-backend.azurewebsites.net/all"
+      );
+      const data = await res.json();
+      setCountryInfo(data);
+      console.log(countryInfo);
+    };
+    retrieveCountryInfo();
+  }, []);
+
+  return (
+    <div className="landingpage">
+      <div className="row">
+        {countryInfo
+          ? countryInfo.map((country) => (
+              <div key={country.abbr} className="country-card">
+                <div className="countryflag">
+                  <img
+                    className="countryflag"
+                    src={country.flag}
+                    alt={country.name + " flag"}
+                  />
+                </div>
+                <p className="cardheader">{country.name}</p>
+              </div>
+            ))
+          : ""}
+      </div>
+    </div>
+  );
+};
+export default LandingPage;
