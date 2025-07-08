@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 
 const LandingPage = () => {
   const [countryInfo, setCountryInfo] = useState(null);
 
   useEffect(() => {
     const retrieveCountryInfo = async () => {
-      const res = await fetch(
-        "https://xcountries-backend.azurewebsites.net/all"
-      );
-      const data = await res.json();
-      setCountryInfo(data);
-      console.log(countryInfo);
+      try {
+        const res = await fetch(
+          "https://xcountries-backend.azurewebsites.net/al"
+        );
+        const data = await res.json();
+        setCountryInfo(data);
+      } catch (err) {
+        console.error("Error fetching data from API");
+      }
     };
     retrieveCountryInfo();
   }, []);
