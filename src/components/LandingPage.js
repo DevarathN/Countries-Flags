@@ -8,7 +8,7 @@ const LandingPage = () => {
     const retrieveCountryInfo = async () => {
       try {
         const res = await fetch(
-          "https://xcountries-backend.azurewebsites.net/al"
+          "https://xcountries-backend.azurewebsites.net/all"
         );
         const data = await res.json();
         setCountryInfo(data);
